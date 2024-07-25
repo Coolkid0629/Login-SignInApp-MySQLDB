@@ -4,6 +4,8 @@
  */
 package newpackage;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author kaust
@@ -13,9 +15,36 @@ public class User {
     String name;
     String email;
     String password;
+    String dob;
+    String phone;
+    String gender;
+    String contact_method;
+    String account_created;
     
     public User() {
         
+    }
+    
+    public User(int id, String name, String email, String password, String dob, String phone, String gender, String contact_method, String account_created) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.dob = dob;
+        this.phone = phone;
+        this.gender = gender;
+        this.contact_method = contact_method;
+        this.account_created = account_created;
+    }
+    
+    public User(String name, String email, String password, String dob, String phone, String gender, String contact_method) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.dob = dob;
+        this.phone = phone;
+        this.gender = gender;
+        this.contact_method = contact_method;
     }
     
     public User(int id, String name, String email, String password) {
@@ -66,5 +95,45 @@ public class User {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getDob() {
+        return this.dob;
+    }
+    
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+    
+    public String getPhone() {
+        return this.phone;
+    }
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    public String getGender() {
+        return this.gender;
+    }
+    
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+    public String getContactMethod() {
+        return this.contact_method;
+    }
+    
+    public void setContactMethod(String contact_method) {
+        this.contact_method = contact_method;
+    }
+    
+    public String getAccountCreatedData() {
+        return this.account_created;
+    }
+    
+    public void setAccountCreatedData(String account_created) {
+        this.account_created = account_created;
     }
 }

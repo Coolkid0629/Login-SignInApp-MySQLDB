@@ -15,7 +15,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Welcome Page</title>
+    <title>User Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,9 +62,15 @@
 <body>
     <div class="container">
         <h1>Welcome, <%= user.getName() %></h1>
-        <h3>Your account id: <%= user.getId() %></h3>
-        <h3>Your account email: <%= user.getEmail() %></h3>
-        <h3>Your account password: <%= user.getPassword() %></h3>
+        <h3>Your Account id: <%= user.getId() %></h3>
+        <h3>Your Account Email: <%= user.getEmail() %></h3>
+        <h3>Your Account Password: <%= user.getPassword() %></h3>
+        <h3>Your Date of Birth (YYYY-MM-DD): <%= user.getDob() %></h3>
+        <h3>Your Phone: <%= user.getPhone() %></h3>
+        <h3>Your Gender: <%= user.getGender() %></h3>
+        <h3>Your Contact Method: <%= user.getContactMethod() %></h3>
+        <h3>Account Creation: <%= user.getAccountCreatedData() %></h3>
+
         <button><a href="LogoutServlet">I'm Done! Log Out.</a></button>
     </div>
 </body>

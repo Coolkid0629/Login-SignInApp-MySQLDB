@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.time.LocalDate;
 
 /**
  *
@@ -35,8 +36,12 @@ public class RegisterServlet extends HttpServlet {
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            String dob = request.getParameter("dateofbirth");
+            String phone = request.getParameter("phone");
+            String gender = request.getParameter("gender");
+            String contact_method = request.getParameter("contact");
             
-            User userModel = new User(name, email, password);
+            User userModel = new User(name, email, password,dob, phone, gender, contact_method);
             
             UserDatabase regUser = new UserDatabase(ConnectionPro.getConnection());
             if (regUser.saveUser(userModel)) {

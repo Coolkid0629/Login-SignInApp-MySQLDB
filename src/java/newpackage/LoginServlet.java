@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("logUser", user);
                 
-                response.sendRedirect("welcome.jsp");
+                response.sendRedirect("user_profile.jsp");
             } else {
                 out.print("Error: 404! User Not Found! LOL!");
             }
