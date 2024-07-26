@@ -65,10 +65,10 @@
         }
     </style>
 </head>
-<body>
+<body> 
     <div class="container">
         <h1>Login Account</h1>
-        <form action="LoginServlet" method="post">
+        <form action="LoginServlet" method="post" autocomplete="off">
             <p>User Email</p>
             <input type="text" placeholder="Email" name="email" required>
             <p>Password</p>

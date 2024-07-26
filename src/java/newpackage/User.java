@@ -5,6 +5,7 @@
 package newpackage;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 /**
  *
@@ -20,6 +21,7 @@ public class User {
     String gender;
     String contact_method;
     String account_created;
+    int active_code;
     
     public User() {
         
@@ -45,6 +47,7 @@ public class User {
         this.phone = phone;
         this.gender = gender;
         this.contact_method = contact_method;
+        this.setNewCode();
     }
     
     public User(int id, String name, String email, String password) {
@@ -135,5 +138,19 @@ public class User {
     
     public void setAccountCreatedData(String account_created) {
         this.account_created = account_created;
+    }
+    
+    public int getActivationCode() {
+        return this.active_code;
+    }
+    
+    public void setActivationCode(int active_code) {
+        this.active_code = active_code;
+    }
+    
+    private void setNewCode() {
+        Random random = new Random();
+        int code = 100000 + random.nextInt(900000);
+        this.setActivationCode(code);
     }
 }

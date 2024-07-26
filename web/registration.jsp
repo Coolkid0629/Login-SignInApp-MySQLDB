@@ -75,9 +75,9 @@
             <p>Username</p>
             <input type="text" placeholder="Username" name="name" required>
             <p>Email</p>
-            <input type="text" placeholder="Email" name="email" required>
+            <input type="email" placeholder="Email" name="email" required>
             <p>Date of Birth</p>
-            <input type='date' name='dateofbirth' required><br><br>
+            <input type='date' name='dateofbirth' id='dateofbirth' required><br><br>
             <p>Phone Number</p>
             <input type='tel' name='phone' placeholder='123-456-7890' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
             <small>Format: 123-456-7890</small><br><br>
@@ -94,7 +94,7 @@
                 <option value="Phone">Phone</option>
             </select>
             <p>Password</p>
-            <input type="password" placeholder="Password" name="password" id='password' required>
+            <input type="password" placeholder="Password" name="password" id='password' maxlength="16"x required>
             <p>Cofirm Password</p>
             <input type="password" placeholder="Confirm Password" id='confirm_password' required>
             <span id='password_error' style='color: red;'></span>
@@ -112,15 +112,43 @@
             const passwordInput = document.getElementById('password');
             const confirmPasswordInput = document.getElementById('confirm_password');
             const passwordError = document.getElementById('password_error');
-
-            form.addEventListener('submit', function(event) {
-                if (passwordInput.value !== confirmPasswordInput.value) {
-                    passwordError.textContent = "Passwords do not match";
-                    event.preventDefault(); // Prevent form submission
-                } else {
-                    passwordError.textContent = "";
-                    // Passwords match, continue with form submission
+            const dob = document.getElementById('dateofbirth');
+            
+            function calculateAge(dateOfBirth) {
+                const today = new Date();
+                const birthDate = new Date(dateOfBirth);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const monthDifference = today.getMonth() - birthDate.getMonth();
+                
+                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
                 }
+                return age;
+            }
+            
+            form.addEventListener('submit', function(event) {
+                const dobValue = dob.value;
+                const age = calculateAge(dobValue);
+                
+                if (dobValue) {
+                    if (age < 18) {
+                        passwordError.textContent = "Your age is under 18! You can't create a account.";
+                        event.preventDefault();
+                    } else {
+                        if (passwordInput.value !== confirmPasswordInput.value) {
+                            passwordError.textContent = "Passwords do not match";
+                            event.preventDefault(); // Prevent form submission
+                        } else if (passwordInput.value.length < 8) {
+                            passwordError.textContent = "Password too short, min of 8 characters!";
+                            event.preventDefault();
+                        } else {
+                            passwordError.textContent = "";
+                            // Passwords match, continue with form submission
+                        }
+                    }
+                }
+                
+                
             });
         });
     </script>
