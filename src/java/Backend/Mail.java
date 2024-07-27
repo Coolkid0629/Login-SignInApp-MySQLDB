@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package newpackage;
+package Backend;
 
 import java.util.Properties;
 import javax.mail.Message;
@@ -52,7 +52,7 @@ public class Mail {
         MimeMultipart multiPart = new MimeMultipart();
         
         MimeBodyPart bodyPart = new MimeBodyPart();
-        bodyPart.setContent(emailBody, "text/text");
+        bodyPart.setContent(emailBody, "text/html");
         multiPart.addBodyPart(bodyPart);
         mimeMessage.setContent(multiPart);
         return mimeMessage;        

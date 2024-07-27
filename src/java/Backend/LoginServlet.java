@@ -1,8 +1,10 @@
+package Backend;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package newpackage;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +13,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.time.LocalDate;
+import static java.lang.System.out;
 
 /**
  *
  * @author kaust
  */
-public class RegisterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,31 +33,27 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            System.out.println("Hereereresderfe");
-            // Fetch data from registration page
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String dob = request.getParameter("dateofbirth");
-            String phone = request.getParameter("phone");
-            String gender = request.getParameter("gender");
-            String contact_method = request.getParameter("contact");
+            String inputedEmail = request.getParameter("email");
+            String inputedPassword = request.getParameter("password");
             
-            User userModel = new User(name, email, password, dob, phone, gender, contact_method);
+            UserDatabase db = new UserDatabase(ConnectionPro.getConnection());
             
-            UserDatabase regUser = new UserDatabase(ConnectionPro.getConnection());
-            if (regUser.saveUser(userModel)) {
-                Mail mail = new Mail();
-                mail.sendMessage(userModel);
-                response.sendRedirect("index.jsp");
+            User user = db.logUser(inputedEmail, inputedPassword);
+            if(user != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("logUser", user);
+                if(user.getVerified().equals("1")) {
+                    response.sendRedirect("user_profile.jsp");
+                } else {
+                    Mail mail = new Mail();
+                    mail.sendMessage(user);
+                    response.sendRedirect("user_code_verification.jsp");
+                }
             } else {
-                String errorMessage = "User Available";
-                HttpSession regSession = request.getSession();
-                regSession.setAttribute("RegError", errorMessage);
-                response.sendRedirect("register.jsp");
+                out.print("Error: 404! User Not Found! LOL!");
             }
-        }
-        catch(Exception e) {
+            
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }

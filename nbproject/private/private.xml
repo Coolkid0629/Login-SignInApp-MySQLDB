@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/newpackage/User.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/user_registration.jsp</file>
             <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/index.jsp</file>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/newpackage/Mail.java</file>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/registration.jsp</file>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/newpackage/LoginServlet.java</file>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/newpackage/UserDatabase.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/UserDatabase.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/EmailVerificationServlet.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/RegisterServlet.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/User.java</file>
             <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/user_profile.jsp</file>
-            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/newpackage/RegisterServlet.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/Mail.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/user_login.jsp</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/src/java/Backend/LoginServlet.java</file>
+            <file>file:/C:/Users/kaust/OneDrive/Documents/Github%20Projects/Login-SignInApp-MySQLDB/web/user_code_verification.jsp</file>
         </group>
     </open-files>
 </project-private>

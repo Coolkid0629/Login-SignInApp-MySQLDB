@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package newpackage;
+package Backend;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -22,6 +22,7 @@ public class User {
     String contact_method;
     String account_created;
     int active_code;
+    boolean verified;
     
     public User() {
         
@@ -48,6 +49,7 @@ public class User {
         this.gender = gender;
         this.contact_method = contact_method;
         this.setNewCode();
+        this.verified = false;
     }
     
     public User(int id, String name, String email, String password) {
@@ -140,8 +142,8 @@ public class User {
         this.account_created = account_created;
     }
     
-    public int getActivationCode() {
-        return this.active_code;
+    public String getActivationCode() {
+        return String.valueOf(this.active_code);
     }
     
     public void setActivationCode(int active_code) {
@@ -152,5 +154,21 @@ public class User {
         Random random = new Random();
         int code = 100000 + random.nextInt(900000);
         this.setActivationCode(code);
+    }
+    
+    public void setVerified(String verified) {
+        if(verified.equals("1")) {
+            this.verified = true;
+        } else {
+            this.verified = false;
+        }
+    }
+    
+    public String getVerified() {
+        if (this.verified) {
+            return "1";
+        } else {
+            return "0";
+        }
     }
 }

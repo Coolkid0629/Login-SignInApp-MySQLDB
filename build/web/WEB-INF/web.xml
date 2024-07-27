@@ -2,15 +2,19 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>newpackage.RegisterServlet</servlet-class>
+        <servlet-class>Backend.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>newpackage.LoginServlet</servlet-class>
+        <servlet-class>.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>newpackage.LogoutServlet</servlet-class>
+        <servlet-class>Backend.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmailVerificationServlet</servlet-name>
+        <servlet-class>Backend.EmailVerificationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmailVerificationServlet</servlet-name>
+        <url-pattern>/EmailVerificationServlet</url-pattern>
     </servlet-mapping>
 </web-app>
