@@ -31,8 +31,8 @@ public class Mail {
     }
 
     private void sendEmail() throws MessagingException {
-        String fromUser = "inception.kaustubh@gmail.com";
-        String fromUserPassword = "fgdl zjjy jghy qdaj";
+        String fromUser = "*************"; //Add your own email
+        String fromUserPassword = "***************"; //Added my own app password from google
         String emailHost = "smtp.gmail.com";
         Transport transport = newSession.getTransport("smtp");
         transport.connect(emailHost, fromUser, fromUserPassword);
